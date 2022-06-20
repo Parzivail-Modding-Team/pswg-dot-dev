@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117161679-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117161679-1');
+	</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Galaxies: Parzi's Star Wars Mod</title>
+	<link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+	<a class="item" href="https://parzivail.com/">Parzivail</a>
+	<a class="active item" href="index.html">Home</a>
+	<a class="item" href="https://www.curseforge.com/minecraft/mc-mods/pswg">PSWG on CurseForge</a>
+	<a class="item" href="https://discord.pswg.dev">Join our Discord</a>
+	<!--<a class="item" href="screenshots.html">Screenshots</a>-->
+	<!--<a class="item" href="about.html">About</a>-->
+	<a class="item" href="download.html">Download</a>
+</div>
+
+<!-- Page Contents -->
+<div class="pusher" id="app">
+	<div class="ui vertical center aligned basic segment paraxify starsbg">
+		<div class="ui container">
+			<div class="ui large inverted secondary pointing menu" id="mainmenu">
+				<a class="toc item">
+					<i class="sidebar icon"></i>
+				</a>
+				<a class="item" href="https://parzivail.com/">Parzivail</a>
+				<a class="active item" href="index.html">Galaxies: Parzi's Star Wars Mod</a>
+				<a class="item" href="https://www.curseforge.com/minecraft/mc-mods/pswg">PSWG on CurseForge</a>
+				<!--<a class="item" href="screenshots.html">Screenshots</a>-->
+				<!--<a class="item" href="about.html">About</a>-->
+				<div class="right item">
+					<a class="ui inverted button" href="https://discord.pswg.dev">Join our Discord</a>
+					<a class="ui inverted button" href="download.html">Download</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui vertical inverted stripe segment paraxify starsbg">
+		<div class="ui text container">
+			<h3 class="ui inverted header">Galaxies: Parzi's Star Wars Mod</h3>
+			<p>For <a href="https://fabricmc.net/use/">Fabric</a>. Requires <a href="https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot">Java 16</a> and <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api">Fabric API</a>.</p>
+			<p>Also on <a href="https://www.curseforge.com/minecraft/mc-mods/pswg">CurseForge</a>! Coming soon to Modrinth.</p>
+		</div>
+	</div>
+
+	<div class="ui vertical segment">
+		<div class="ui container">
+			<div class="ui two statistics" v-cloak>
+				<div class="statistic">
+					<div class="value" v-text="downloads.total">
+						0
+					</div>
+					<div class="label">
+						Downloads (Total)
+					</div>
+				</div>
+				<div class="statistic">
+					<div class="value" v-text="downloads.mostRecent">
+						0
+					</div>
+					<div class="label">
+						Downloads (<span v-text="(releases.length > 0 ? releases[0].dlname : '')">Most Recent</span>)
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui vertical segment paraxify">
+		<div class="ui grid">
+			<div class="row">
+				<div class="four wide column">
+					<div class="ui right floated segment">
+						<small>Advertisement</small>
+						<div class="ui medium rectangle ad">
+							<!-- PswgDownloadAd -->
+							<ins class="adsbygoogle"
+							     style="display:inline-block;width:300px;height:250px"
+							     data-ad-client="ca-pub-3684630393936871"
+							     data-ad-slot="7450292728"></ins>
+						</div>
+						<div class="ui medium rectangle ad">
+							<!-- PswgDownloadAd2 -->
+							<ins class="adsbygoogle"
+									style="display:inline-block;width:300px;height:250px"
+									data-ad-client="ca-pub-3684630393936871"
+									data-ad-slot="1647301709"></ins>
+						</div>
+					</div>
+				</div>
+				<div class="eight wide column">
+					<table class="ui celled table">
+						<thead>
+						<tr>
+							<th>Version</th>
+							<th>Published</th>
+							<th>Changelog</th>
+							<th>Download</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr is="pswg-release" v-for="release in releases"
+						    :latest="release.latest"
+						    :is-pswm="release.isPswm"
+						    :dlname="release.dlname"
+						    :age="release.age"
+						    :downloads="release.downloads"
+						    :prerelease="release.prerelease"
+						    :link-changelog="release.linkChangelog"
+						    :link-download="release.linkDownload"></tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="four wide column">
+					<div class="ui left floated">
+						<iframe src="https://discordapp.com/widget?id=412945916476129280&theme=dark" width="350" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui inverted vertical footer segment">
+		<div class="ui container">
+			<div class="ui stackable inverted divided equal height stackable grid">
+				<div class="three wide column">
+					<h4 class="ui inverted header">Social</h4>
+					<div class="ui inverted link list">
+						<a href="https://twitter.com/Parzivail" class="item">Twitter</a>
+						<a href="https://github.com/parzivail" class="item">GitHub</a>
+					</div>
+				</div>
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Overview</h4>
+					<p>The developers behind Parzi's Star Wars Mod are back at it again with a new mod that pushes the
+						limits of what's possible in Minecraft.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3684630393936871",
+          enable_page_level_ads: true
+     });
+</script>
+<script	src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.0/moment.min.js"></script>
+<script src="js/semantic.min.js"></script>
+<script src="js/paraxify.min.js"></script>
+<script src="js/download.js"></script>
+</body>
+</html>
